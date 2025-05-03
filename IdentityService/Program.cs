@@ -17,4 +17,19 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+app.MapPost("/signIn", () =>
+{
+
+
+    return Results.Ok("Hello from Identity Service");
+});
+
+app.MapPost("/signOut", () =>
+{
+
+
+    return Results.Ok("Hello from Identity Service");
+});
+
 app.Run();

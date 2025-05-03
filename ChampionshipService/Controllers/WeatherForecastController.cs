@@ -1,6 +1,7 @@
+using ChampionshipService.API;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ChampionshipService.Controllers
+namespace ChampionshipService.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

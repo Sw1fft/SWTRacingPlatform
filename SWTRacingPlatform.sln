@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionshipService", "ChampionshipService\ChampionshipService.csproj", "{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionshipService.API", "ChampionshipService\ChampionshipService.API.csproj", "{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "IdentityService\IdentityService.csproj", "{17290B9C-104C-4EE8-B0ED-832D038F42B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService.API", "IdentityService\IdentityService.API.csproj", "{17290B9C-104C-4EE8-B0ED-832D038F42B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Championship", "Championship", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{EC694591-2782-48AE-96BC-74AAF6A5C4D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,8 +32,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E} = {6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}
-		{17290B9C-104C-4EE8-B0ED-832D038F42B4} = {6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}
+		{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{17290B9C-104C-4EE8-B0ED-832D038F42B4} = {EC694591-2782-48AE-96BC-74AAF6A5C4D0}
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}
+		{EC694591-2782-48AE-96BC-74AAF6A5C4D0} = {6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {509FBF02-2299-48CB-B9F4-12114DFFFC4D}

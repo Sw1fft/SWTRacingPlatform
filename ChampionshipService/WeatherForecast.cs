@@ -1,4 +1,4 @@
-namespace ChampionshipService
+namespace ChampionshipService.API
 {
     public class WeatherForecast
     {
