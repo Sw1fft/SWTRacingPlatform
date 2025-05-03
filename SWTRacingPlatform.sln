@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionshipService", "ChampionshipService\ChampionshipService.csproj", "{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "IdentityService\IdentityService.csproj", "{17290B9C-104C-4EE8-B0ED-832D038F42B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17290B9C-104C-4EE8-B0ED-832D038F42B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17290B9C-104C-4EE8-B0ED-832D038F42B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17290B9C-104C-4EE8-B0ED-832D038F42B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17290B9C-104C-4EE8-B0ED-832D038F42B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C7F8E2A-0C40-490F-89A7-E9F18C4ACE7E} = {6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}
+		{17290B9C-104C-4EE8-B0ED-832D038F42B4} = {6102913A-FD11-4EFE-9FB9-A2CCD073DBA5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {509FBF02-2299-48CB-B9F4-12114DFFFC4D}
+	EndGlobalSection
+EndGlobal
