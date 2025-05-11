@@ -1,6 +1,16 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using IdentityService.Application.DTO_s.Request;
+using IdentityService.Domain.Abstractions.Services;
+using IdentityService.Infrastructure.IoC;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterModule(new RegistrationService());
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -15,21 +25,22 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-app.MapPost("/signIn", () =>
+app.MapPost("/api/login", async (LoginRequestDto request, IUserService service) =>
 {
+    var result = await service.LoginAsync(request);
 
-
-    return Results.Ok("Hello from Identity Service");
+    return Results.Ok(result);
 });
 
-app.MapPost("/signOut", () =>
+app.MapPost("/api/register", async (RegisterRequestDto request, IUserService service) =>
 {
+    var result = await service.RegisterAsync(request);
 
-
-    return Results.Ok("Hello from Identity Service");
+    return Results.Ok(result);
 });
 
 app.Run();
