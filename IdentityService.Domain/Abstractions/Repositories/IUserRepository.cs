@@ -5,7 +5,7 @@ namespace IdentityService.Domain.Abstractions.Repositories
 {
     public interface IUserRepository
     {
-        Task<string> GetUserPasswordHash(string email);
+        Task<User> GetUser(string email);
         Task<BaseResponse> CreateUser(User user);
     }
 }

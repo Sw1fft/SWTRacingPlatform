@@ -1,9 +1,10 @@
 ﻿using Autofac;
 using FluentValidation;
+using IdentityService.Application.Abstractions;
 using IdentityService.Application.DTO_s.Request;
 using IdentityService.Domain.Abstractions.Repositories;
 using IdentityService.Domain.Abstractions.Services;
-using IdentityService.Infrastructure.Handlers;
+using IdentityService.Domain.Models;
 using IdentityService.Infrastructure.Handlers.Commands;
 using IdentityService.Infrastructure.Repositories;
 using IdentityService.Infrastructure.Services;
@@ -29,6 +30,10 @@ namespace IdentityService.Infrastructure.IoC
                 .As<IValidator<RegisterRequestDto>>()
                 .InstancePerLifetimeScope();
 
+            builder.RegisterType<UserValidator>()
+                .As<IValidator<User>>()
+                .InstancePerLifetimeScope();
+
             builder.RegisterType<PasswordService>()
                 .As<IPasswordService>()
                 .InstancePerLifetimeScope();
@@ -37,11 +42,29 @@ namespace IdentityService.Infrastructure.IoC
                 .As<IUserRepository>()
                 .InstancePerLifetimeScope();
 
-            var configuartion = MediatRConfigurationBuilder.Create(typeof(LoginUserCommand).Assembly)
+            //var configuartion = MediatRConfigurationBuilder.Create(typeof(LoginUserCommand).Assembly)
+            //    .WithAllOpenGenericHandlerTypesRegistered()
+            //    .Build();
+
+            //builder.RegisterMediatR(configuartion);
+
+            var loginConfig = MediatRConfigurationBuilder
+                .Create(typeof(LoginUserCommand).Assembly)
                 .WithAllOpenGenericHandlerTypesRegistered()
                 .Build();
 
-            builder.RegisterMediatR(configuartion);
+            builder.RegisterMediatR(loginConfig);
+
+            var registerConfig = MediatRConfigurationBuilder
+                .Create(typeof(RegisterUserCommand).Assembly)
+                .WithAllOpenGenericHandlerTypesRegistered()
+                .Build();
+
+            builder.RegisterMediatR(registerConfig);
+
+            builder.RegisterType<JwtService>()
+                .As<IJwtService>()
+                .InstancePerLifetimeScope();
         }
     }
 }

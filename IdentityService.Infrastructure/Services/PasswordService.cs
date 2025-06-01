@@ -14,14 +14,14 @@ namespace IdentityService.Infrastructure.Services
 
         public Task<string> GeneratePassword(string password)
         {
-            string result = BCrypt.Net.BCrypt.EnhancedHashPassword(password);
+            string result = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA256);
 
             return Task.FromResult(result);
         }
 
         public Task<bool> VerifyPassword(string password, string hasedPassword)
         {
-            bool result = BCrypt.Net.BCrypt.EnhancedVerify(password, hasedPassword);
+            bool result = BCrypt.Net.BCrypt.EnhancedVerify(password, hasedPassword, BCrypt.Net.HashType.SHA256);
 
             return Task.FromResult(result);
         }

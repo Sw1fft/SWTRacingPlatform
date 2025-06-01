@@ -16,7 +16,7 @@ namespace IdentityService.Infrastructure.Handlers
 
         #endregion
 
-        public RegisterUserCommandHandler( IUserRepository userRepository, IValidator<User> userValidator)
+        public RegisterUserCommandHandler(IUserRepository userRepository, IValidator<User> userValidator)
         {
             _userRepository = userRepository;
             _userValidator = userValidator;

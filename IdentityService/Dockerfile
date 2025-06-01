@@ -14,6 +14,8 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["IdentityService/IdentityService.API.csproj", "IdentityService/"]
 COPY ["IdentityService.Application/IdentityService.Application.csproj", "IdentityService.Application/"]
+COPY ["IdentityService.Domain/IdentityService.Domain.csproj", "IdentityService.Domain/"]
+COPY ["IdentityService.Infrastructure/IdentityService.Infrastructure.csproj", "IdentityService.Infrastructure/"]
 RUN dotnet restore "./IdentityService/IdentityService.API.csproj"
 COPY . .
 WORKDIR "/src/IdentityService"

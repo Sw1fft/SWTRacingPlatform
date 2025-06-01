@@ -1,7 +1,7 @@
 ﻿using IdentityService.Application.DTO_s.Request;
 using IdentityService.Domain.Models.Base;
 
-namespace IdentityService.Domain.Abstractions.Services
+namespace IdentityService.Application.Abstractions
 {
     public interface IUserService
     {

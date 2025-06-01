@@ -1,4 +1,5 @@
-﻿using IdentityService.Domain.Abstractions.Repositories;
+﻿using AutoMapper;
+using IdentityService.Domain.Abstractions.Repositories;
 using IdentityService.Domain.Abstractions.Services;
 using IdentityService.Domain.Entities;
 using IdentityService.Domain.Models;
@@ -15,23 +16,30 @@ namespace IdentityService.Infrastructure.Repositories
 
         private readonly IPasswordService _passwordService;
         private readonly IdentityServiceDbContext _dbContext;
+        private readonly IMapper _mapper;
 
         #endregion
 
-        public UserRepository(IPasswordService passwordService, IdentityServiceDbContext dbContext)
+        public UserRepository(IPasswordService passwordService, IdentityServiceDbContext dbContext, IMapper mapper)
         {
             _passwordService = passwordService;
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
-        public async Task<string> GetUserPasswordHash(string email)
+        public async Task<User> GetUser(string email)
         {
-            var entity = await _dbContext.Users
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Email == email)
-                ?? throw new NullReferenceException("Пользователя с таким email не существует");
+            Validate(email);
 
-            return entity.PasswordHash;
+            UserEntity? entity = await _dbContext.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Email == email);
+
+            Validate(entity);
+
+            var user = _mapper.Map<User>(entity);
+
+            return user;
         }
 
         public async Task<BaseResponse> CreateUser(User user)
@@ -55,6 +63,17 @@ namespace IdentityService.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
 
             return await GetSuccessResult(DateTime.Now.ToString(), "Регистрация выполнена успешно");
+        }
+
+        private void Validate(UserEntity entity)
+        {
+            if (entity is null)
+                throw new ArgumentNullException("Пользователь не найден");
+        }
+
+        private void Validate(string email)
+        {
+
         }
     }
 }

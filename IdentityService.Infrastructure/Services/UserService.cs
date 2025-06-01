@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
+using IdentityService.Application.Abstractions;
 using IdentityService.Application.DTO_s.Request;
-using IdentityService.Domain.Abstractions.Services;
 using IdentityService.Domain.Models;
 using IdentityService.Domain.Models.Base;
 using IdentityService.Infrastructure.Handlers.Commands;
@@ -33,7 +33,7 @@ namespace IdentityService.Infrastructure.Services
         {
             try
             {
-                RequestValidate(request);
+                Validate(request);
 
                 var result = await _mediator.Send(new LoginUserCommand(request.Email, request.Password));
 
@@ -48,7 +48,7 @@ namespace IdentityService.Infrastructure.Services
         {
             try
             {
-                RequestValidate(request);
+                Validate(request);
 
                 var user = new User()
                 {
@@ -69,7 +69,7 @@ namespace IdentityService.Infrastructure.Services
             catch (Exception ex) { throw new Exception($"Регистрация не выполнена. Ошибка: {ex.Message}"); }
         }
 
-        private void RequestValidate(LoginRequestDto request)
+        private void Validate(LoginRequestDto request)
         {
             var result = _loginRequestValidator.Validate(request);
 
@@ -77,7 +77,7 @@ namespace IdentityService.Infrastructure.Services
                 throw new ValidationException(result.ToString());
         }
 
-        private void RequestValidate(RegisterRequestDto request)
+        private void Validate(RegisterRequestDto request)
         {
             var result = _registerRequestValidator.Validate(request);
 
