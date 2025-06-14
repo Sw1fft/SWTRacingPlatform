@@ -7,5 +7,12 @@ namespace AccountService.Domain.Models
         public Guid Id { get; set; }
         public string AwardName { get; set; } = new NullItem().DefaultData;
         public string AwardImageUrl { get; set; } = new NullItem().DefaultData;
+
+        public override string ToString()
+        {
+            return $"Id: {Id}," +
+                $"AwardName: {AwardName}," +
+                $"AwardImageUrl: {AwardImageUrl}";
+        }
     }
 }

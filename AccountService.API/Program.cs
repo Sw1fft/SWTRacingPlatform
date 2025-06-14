@@ -1,6 +1,9 @@
+using AccountService.Domain.Abstractions.Services;
+using AccountService.Infrastructure.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddScoped<IHeaderService, HeaderService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

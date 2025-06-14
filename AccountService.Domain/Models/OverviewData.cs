@@ -9,5 +9,14 @@ namespace AccountService.Domain.Models
         public string AboutInfo { get; set; } = new NullItem().DefaultData;
         public List<AwardData> Awards { get; set; } = [];
         public int ReputationPoints { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}," +
+                $"Games: {Games.Count}," +
+                $"AboutInfo: {AboutInfo}," +
+                $"Awards: {Awards}," +
+                $"ReputationsPoints: {ReputationPoints}";
+        }
     }
 }
